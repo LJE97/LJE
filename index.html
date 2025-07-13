@@ -27,6 +27,12 @@
         a {
             color: #1e88e5;
         }
+	video {
+  	    border-radius: 12px;
+  	    max-width: 100%;
+  	    height: auto;
+  	    background: #000;
+	}
     </style>
 </head>
 <body>
@@ -68,6 +74,19 @@
     	<video controls width="100%">
         	<source src="video1.mp4" type="video/mp4">
     	</video>
+    </div>
+
+   <div class="card">
+  	<h3>홍보영상</h3>
+  	<video
+    	controls
+    	width="100%"
+    	poster="video-thumbnail.jpg"
+    	playsinline
+    	preload="metadata"
+  	>
+    		<source src="video1.mp4" type="video/mp4" />
+  	</video>
     </div>
 
     <div class="card">
