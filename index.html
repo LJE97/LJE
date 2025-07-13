@@ -1,95 +1,269 @@
-
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <title>청년 신체건강증진 서비스</title>
-    <style>
-        body {
-            background-color: #6E4C67;
-            font-family: 'Nanum Gothic', sans-serif;
-            color: white;
-            line-height: 1.6;
-            padding: 20px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>대구 청년 신체건강증진 서비스</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary:#6E4C67;
+      --accent:#FEE500;
+      --bg:#F5EFF7;
+      --text:#333;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(135deg,var(--primary) 0%,#9b70a1 100%);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:40px 15px;
+    }
+    h1{
+      color:#fff;
+      font-weight:600;
+      letter-spacing:1px;
+      text-align:center;
+      margin-bottom:25px;
+      animation:fadeDown 1s ease-out;
+    }
+    /* 전체 스타일 */
+    .highlight-intro {
+    text-align: center;
+    animation: fadeInUp 1.2s ease-in-out;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    }
+
+    .intro-title {
+    font-size: 34px;
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+    }
+
+    .intro-sub {
+    font-size: 18px;
+    line-height: 2;
+    color: #333;
+    }
+
+    /* 하이라이트 스타일 */
+    .highlight {
+    background: linear-gradient(90deg, #fff1e6, #f8e1ff);
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s;
+    }
+
+    .highlight:hover {
+    background: #ffe0f0;
+    }
+
+    /* 등장 애니메이션 */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(12px);
         }
-        .card {
-            background: #f7f2f4;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 700px;
-            color: black;
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
-        img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-        a {
-            color: #1e88e5;
-        }
-	video {
-  	    border-radius: 12px;
-  	    max-width: 100%;
-  	    height: auto;
-  	    background: #000;
-	}
-    </style>
+    }
+
+    .card{
+      width:100%;
+      max-width:780px;
+      background:var(--bg);
+      border-radius:16px;
+      box-shadow:0 10px 25px rgba(0,0,0,.15);
+      padding:30px 26px;
+      margin-bottom:32px;
+      animation:fadeUp 1s ease-out forwards;
+      opacity:0;
+    }
+    .card:nth-of-type(2){animation-delay:.1s}
+    .card:nth-of-type(3){animation-delay:.2s}
+    .card:nth-of-type(4){animation-delay:.3s}
+    .card:nth-of-type(5){animation-delay:.4s}
+
+    .card h3{
+      color:var(--primary);
+      margin-bottom:18px;
+      font-weight:600;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    .card p{line-height:1.8;font-size:17px}
+    .media-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .media-grid img, video{
+      width:100%;
+      border-radius:12px;
+      object-fit:cover;
+    }
+    .btn{
+      display:inline-block;
+      margin:6px;
+      padding:12px 24px;
+      border-radius:30px;
+      font-weight:600;
+      text-decoration:none;
+      transition:transform .2s,box-shadow .2s;
+    }
+    .btn:hover{transform:translateY(-3px);box-shadow:0 6px 15px rgba(0,0,0,.2)}
+    .btn-kakao{background:var(--accent);color:#000;}
+    .btn-insta{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;}
+    .btn-blog{background:#03C75A;color:#fff;}
+
+    @keyframes fadeUp{0%{opacity:0;transform:translateY(40px)}100%{opacity:1;transform:translateY(0)}}
+    @keyframes fadeDown{0%{opacity:0;transform:translateY(-20px)}100%{opacity:1;transform:translateY(0)}}
+  </style>
 </head>
 <body>
-    <h1 style="text-align:center;">대구 청년 신체건강증진 서비스</h1>
-    <p style="text-align:center;">
-        개인 맞춤형 1:1 PT<br>
-        주 2회 월 8회 / 본인부담금 24,000원<br>
-        만 19세 ~ 34세 이하 청년 (3개월 ~ 최대 6개월 지원가능)<br>
-        장소 : 경북대학교 또는 계명문화대학교
-    </p>
-
-    <div class="card">
-        <h3>청년신체건강증진서비스란?</h3>
-        <p>
-            비만 및 저체중 등 만성질환 고위험군을 대상으로<br>
-            전문적인 1:1 PT 서비스 등의 개인별 맞춤형 처방,<br>
-            식단 관리 및 영양지도 등 건강교육 프로그램 등을<br>
-            제공하는 서비스입니다.
+    <!-- ✨ 헤드라인 + 요약 안내 문구 (강조 효과 포함) -->
+    <div class="highlight-intro">
+        <h1 class="intro-title">🌟 대구 청년 신체건강증진 서비스 🌟</h1>
+        <p class="intro-sub">
+            💪 <span class="highlight">개인 맞춤형 <u>1:1 PT</u></span> · <span class="highlight">주 2회 <u>(월 8회)</u></span><br>
+            💸 <span class="highlight">본인부담금 <u>월 24,000원</u></span><br>
+            👥 <span class="highlight">만 19세 ~ 34세 청년 대상</span><br>
+            ⏳ <span class="highlight">3개월 - 최대 6개월 지원 가능</span><br>
+            📍 <span class="highlight">장소: 경북대학교 · 계명문화대학교</span>
         </p>
     </div>
 
+    <!-- 소개 -->
     <div class="card">
-        <h3>운동 및 건강 프로그램</h3>
+        <h3>💡 청년신체건강증진서비스란?</h3>
         <p>
-            - 유산소, 근력향상, 체력증진 등 운동처방에 따른 전문가의 맞춤형 운동지도<br>
-            - 식단 관리 및 영양지도 등 생활습관 개선<br>
-	    - 자세, 체형교정 (거북목, 라운드 숄더, 척추, 골반 이상 등)
+        비만·저체중 등 만성질환 고위험군 청년을 대상으로<br>
+        전문 트레이너의 1:1 맞춤형 PT, 식단 관리, 영양지도 등<br>
+        건강교육 프로그램을 제공하는 서비스입니다.<br>
         </p>
     </div>
 
+    <!-- 프로그램 -->
     <div class="card">
-        <h3>1:1 개인 맞춤형 지도</h3>
-        <img src="image1.jpg" alt="트레이너 지도">
+        <h3>👇 이런 분들께 강력 추천!</h3>
+        <p>
+        다이어트 및 기초 체력 증진을 원하는 분 🏃‍♂️<br>
+        체형 교정 및 소도구 밸런스 운동이 필요한 분 🧘<br>
+        개인 맞춤형 근력 운동을 통해 탄탄한 몸매를 만들고 싶은 분 🏋️‍♂️<br><br>
+        • 유산소 · 근력 · 체력증진 맞춤 운동지도<br>
+        • 식단 관리 & 영양지도로 건강한 생활습관 형성<br>
+        • 자세·체형 교정 (거북목·라운드숄더·척추·골반 이상 등)
+        </p>
+    </div>
+
+    <!-- 사진 -->
+    <div class="card">
+        <h3>📸 1:1 개인 맞춤형 지도 현장</h3>
+        <div class="media-grid">
+        <img src="image1.jpg" alt="트레이너 지도 장면">
         <img src="image2.jpg" alt="운동 지도 중">
+        </div>
     </div>
 
-   <div class="card">
-  	<h3>홍보영상</h3>
-  	<video
-    	controls
-    	width="100%"
-    	poster="video-thumbnail.jpg"
-    	playsinline
-    	preload="metadata"
-  	>
-    		<source src="video1.mp4" type="video/mp4" />
-  	</video>
-    </div>
-
+    <!-- 영상 -->
     <div class="card">
-        <h3>상담 문의</h3>
-        <p>
-            📱 010-9572-8890<br>
-            ✉️ akak954@naver.com<br>
-            💬 <a href="https://open.kakao.com/o/st0RZNGh" target="_blank">오픈채팅 상담 바로가기</a>
+        <h3>🎬 소개 영상</h3>
+        <video controls playsinline preload="metadata" poster="video-thumbnail.jpg">
+        <source src="video1.mp4" type="video/mp4">
+        지원되지 않는 브라우저입니다.
+        </video>
+    </div>
+
+    <!-- 문의 -->
+    <div class="card" style="text-align:center">
+        <h3>☎️ 상담 문의</h3>
+        <p style="line-height:1.9;font-size:18px">
+        📱 <a href="tel:01095728890" style="color:#1e88e5">010‑9572‑8890</a><br>
+        ✉️ <a href="mailto:akak954@naver.com" style="color:#1e88e5">akak954@naver.com</a><br><br>
+        <a class="btn btn-kakao" href="https://open.kakao.com/o/st0RZNGh" target="_blank">오픈채팅 상담하기</a>
+        <a class="btn btn-insta" href="https://www.instagram.com/knu.daegu.youth?igsh=MTJhYnRncjVtN2RkbQ==" target="_blank">인스타그램 방문하기</a>
+        <a class="btn btn-blog" href="https://blog.naver.com/akak954" target="_blank">블로그 바로가기</a>
         </p>
+    </div>
+
+    <!-- 상시문의 -->
+    <div class="card" style="text-align: center;">
+        <h3 style="margin-bottom: 20px; color: #6E4C67; font-size: 22px;">📋 상시 문의 신청서</h3>
+        <form id="contact-form" action="https://formspree.io/f/xeozjkyd" method="POST" style="max-width: 600px; margin: 0 auto;">
+            <p style="text-align: left;">
+            🔸 <strong>이름:</strong><br>
+            <input type="text" name="이름" required style="width: 100%; padding: 8px; margin-bottom: 10px;"><br>
+
+            🔸 <strong>생년월일:</strong><br>
+            <input type="text" name="생년월일" placeholder="예: 1997-08-03" required style="width: 100%; padding: 8px; margin-bottom: 10px;"><br>
+
+            🔸 <strong>전화번호:</strong><br>
+            <input type="tel" name="전화번호" required style="width: 100%; padding: 8px; margin-bottom: 10px;"><br>
+
+            🔸 <strong>주소 (거주지):</strong><br>
+            <input type="text" name="주소" style="width: 100%; padding: 8px; margin-bottom: 10px;"><br>
+
+            🔸 <strong>수업 희망 시간:</strong><br>
+            <input type="text" name="수업 희망시간" placeholder="예: 평일 오후 6시 이후" style="width: 100%; padding: 8px; margin-bottom: 10px;"><br>
+
+            🔸 <strong>희망 장소:</strong><br>
+            <select name="수업 장소" style="width: 100%; padding: 8px; margin-bottom: 20px;">
+                <option value="경북대학교">경북대학교</option>
+                <option value="계명문화대학교">계명문화대학교</option>
+            </select><br>
+
+            <button type="submit" style="background-color:#6E4C67; color:white; font-weight:bold; padding:10px 20px; border:none; border-radius:6px; cursor:pointer;">
+                빠른 상담 요청하기 🚀
+            </button>
+            </p>
+        </form>
+
+        <!-- ✅ 제출 완료 메시지 -->
+        <div id="success-message" style="display:none; margin-top:20px; color:green; font-weight:bold;">
+            ✅ 문의가 성공적으로 접수되었습니다! 빠른 시일 내 연락드리겠습니다.
+        </div>
     </div>
 
 </body>
+<!-- ✅ Form 제출 후 메시지 처리 스크립트 -->
+<script>
+  const form = document.getElementById('contact-form');
+  const successMessage = document.getElementById('success-message');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault(); // 기본 제출 막기
+
+    const formData = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      form.reset(); // 폼 초기화
+      successMessage.style.display = 'block'; // 메시지 표시
+    } else {
+      alert('❌ 제출에 실패했습니다. 다시 시도해주세요.');
+    }
+  });
+</script>
+
 </html>
+
